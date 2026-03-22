@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b4eda74ffcea640eaa67db4a1bf8b837
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - particulaDanoPrefab: {fileID: 2663807951352000595, guid: 547e51ef5b68647f0a1399a2621ac798, type: 3}
+  - particulaMortePrefab: {fileID: 2663807951352000595, guid: 547e51ef5b68647f0a1399a2621ac798, type: 3}
+  - audioSource: {instanceID: 0}
+  - somDano: {instanceID: 0}
+  - somMorte: {fileID: 8300000, guid: 4ecf2abcdd2987b4ab2773ac82a0f2de, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

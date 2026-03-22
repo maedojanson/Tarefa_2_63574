@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 8973b9dfebddd4bf1b745141c539bd02
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - somCura: {fileID: 8300000, guid: 173a14cf06354c643b46b235f2a4f974, type: 3}
+  - efeitoParticula: {fileID: 2663807951352000595, guid: 547e51ef5b68647f0a1399a2621ac798, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
