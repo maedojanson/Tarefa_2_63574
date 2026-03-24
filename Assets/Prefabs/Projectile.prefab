@@ -127,11 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84acfeb26f7b4d60a2990c4eb55cd59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dano: 1
-  tempoDeVida: 3
-  efeitoExplosao: {fileID: 2663807951352000595, guid: 547e51ef5b68647f0a1399a2621ac798, type: 3}
-  escalaParticula: 1
-  somImpacto: {fileID: 8300000, guid: c87de0cae68cdbb409eec8ba23a860d0, type: 3}
 --- !u!58 &-3160006584197406138
 CircleCollider2D:
   m_ObjectHideFlags: 0

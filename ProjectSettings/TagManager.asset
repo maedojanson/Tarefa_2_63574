@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Damage
   - Decoration
+  - Inimigo
   layers:
   - Default
   - TransparentFX
