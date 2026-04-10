@@ -342,10 +342,8 @@
           },
           {
             "name": "Renderer",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
-            "dependencyType": 0,
+            "scenes": [],
+            "dependencyType": 1,
             "icon": null
           },
           {
@@ -716,13 +714,17 @@
         "dependencies": [
           {
             "name": "ParticleSystem",
-            "scenes": [],
+            "scenes": [
+              "Assets/Scenes/SampleScene.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "ParticleSystemRenderer",
-            "scenes": [],
+            "scenes": [
+              "Assets/Scenes/SampleScene.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           }
@@ -762,14 +764,6 @@
         "dependencies": [
           {
             "name": "BoxCollider2D",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
-            "dependencyType": 0,
-            "icon": null
-          },
-          {
-            "name": "CapsuleCollider2D",
             "scenes": [
               "Assets/Scenes/SampleScene.unity"
             ],

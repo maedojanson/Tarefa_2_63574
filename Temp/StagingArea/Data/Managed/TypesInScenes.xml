@@ -1,13 +1,11 @@
 <linker>
 	<assembly fullname="Assembly-CSharp">
 		<type fullname="BalaProjetil" preserve="nothing"/>
+		<type fullname="CameraPersegueRuby" preserve="nothing"/>
 		<type fullname="DanoZona" preserve="nothing"/>
+		<type fullname="EnemySugarController" preserve="nothing"/>
 		<type fullname="EntradaCasaTrigger" preserve="nothing"/>
-		<type fullname="InimigoController" preserve="nothing"/>
-		<type fullname="InimigoMarshmallow" preserve="nothing"/>
-		<type fullname="InimigoPerseguidor" preserve="nothing"/>
 		<type fullname="ItemCura" preserve="nothing"/>
-		<type fullname="NPCController" preserve="nothing"/>
 		<type fullname="NPCDuckoController" preserve="nothing"/>
 		<type fullname="PuzzleButton" preserve="nothing"/>
 		<type fullname="RubyController" preserve="nothing"/>
@@ -84,7 +82,6 @@
 		<type fullname="UnityEngine.Camera" preserve="nothing"/>
 		<type fullname="UnityEngine.Canvas" preserve="nothing"/>
 		<type fullname="UnityEngine.CanvasRenderer" preserve="nothing"/>
-		<type fullname="UnityEngine.CapsuleCollider2D" preserve="nothing"/>
 		<type fullname="UnityEngine.CircleCollider2D" preserve="nothing"/>
 		<type fullname="UnityEngine.Collider2D" preserve="nothing"/>
 		<type fullname="UnityEngine.Component" preserve="nothing"/>
@@ -97,6 +94,8 @@
 		<type fullname="UnityEngine.MonoBehaviour" preserve="nothing"/>
 		<type fullname="UnityEngine.Motion" preserve="nothing"/>
 		<type fullname="UnityEngine.Object" preserve="nothing"/>
+		<type fullname="UnityEngine.ParticleSystem" preserve="nothing"/>
+		<type fullname="UnityEngine.ParticleSystemRenderer" preserve="nothing"/>
 		<type fullname="UnityEngine.QualitySettings" preserve="nothing"/>
 		<type fullname="UnityEngine.RectTransform" preserve="nothing"/>
 		<type fullname="UnityEngine.Renderer" preserve="nothing"/>
@@ -113,6 +112,9 @@
 		<type fullname="UnityEngine.Tilemaps.Tilemap" preserve="nothing"/>
 		<type fullname="UnityEngine.Tilemaps.TilemapRenderer" preserve="nothing"/>
 		<type fullname="UnityEngine.Transform" preserve="nothing"/>
+	</assembly>
+	<assembly fullname="UnityEngine.TilemapModule">
+		<type fullname="UnityEngine.Tilemaps.Tile" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="UnityEngine.UI">
 		<type fullname="UnityEngine.EventSystems.EventSystem" preserve="nothing"/>

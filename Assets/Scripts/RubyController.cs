@@ -5,7 +5,7 @@ using System.Collections.Generic;
 // ============================================================================
 // PROJETO: RUBY'S ADVENTURE - TAREFA 2 (SUGARLAND EDITION)
 // SCRIPT: RubyController
-// DESCRIÇÃO: Gere movimento, vida, sistema de combo e PROFUNDIDADE DINÂMICA.
+// DESCRIÇÃO: Gere movimento, vida, sistema de combo, profundidade e DIÁLOGOS.
 // ============================================================================
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -68,17 +68,14 @@ public class RubyController : MonoBehaviour
         if (UIHealthBar.instance != null)
             UIHealthBar.instance.SetValue(1.0f);
         
-        // Garante que o ponto de referência são os pés
         spriteRenderer.spriteSortPoint = SpriteSortPoint.Pivot;
-        
-        Debug.Log("RubyController: Sistema de Profundidade Ajustado para 1000/2000.");
     }
 
     void Update()
     {
         if (isDead) return;
 
-        // 1. INPUT
+        // 1. INPUT DE MOVIMENTO
         move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
@@ -101,38 +98,24 @@ public class RubyController : MonoBehaviour
             if (invincibleTimer < 0) { isInvincible = false; spriteRenderer.color = Color.white; }
         }
 
-        // 4. DISPARO
+        // 4. DISPARO (X)
         if (Input.GetKeyDown(KeyCode.X)) ProcessarTiroCombo();
 
-        // ============================================================
-        // 5. O AJUSTE FINAL DE PROFUNDIDADE (PARA A BESTIE!)
-        // ============================================================
-        // Como as tuas árvores estão em 1000 e 2000:
-        // Se a Ruby estiver "acima" das árvores de cima, ela fica em 900 (atrás).
-        // Se estiver no meio, fica em 1500.
-        // Se estiver abaixo das de baixo, fica em 2100.
-        
-        // Vamos usar uma lógica simples:
-        if (transform.position.y > 115) // Ela está lá em cima perto das árvores de 1000
+        // 5. DIÁLOGO (E) ✅
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            spriteRenderer.sortingOrder = 900; 
+            RaycastHit2D hit = Physics2D.Raycast(rb.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
+            if (hit.collider != null)
+            {
+                NPCDuckoController npc = hit.collider.GetComponent<NPCDuckoController>();
+                if (npc != null) npc.DisplayDialog();
+            }
         }
-        else if (transform.position.y < 95) // Ela está cá em baixo perto das de 2000
-        {
-            spriteRenderer.sortingOrder = 2100;
-        }
-        else // Ela está no caminho do meio
-        {
-            spriteRenderer.sortingOrder = 1500;
-        }
-        
-        // DOCUMENTAÇÃO:
-        // Árvore Cima = 1000 | Árvore Baixo = 2000
-        // Ruby topo = 900 (Atrás da de 1000)
-        // Ruby meio = 1500 (À frente da de 1000, atrás da de 2000)
-        // Ruby base = 2100 (À frente da de 2000)
-        // ..........................................................................
-        // ..........................................................................
+
+        // 6. PROFUNDIDADE DINÂMICA
+        if (transform.position.y > 115) spriteRenderer.sortingOrder = 900; 
+        else if (transform.position.y < 95) spriteRenderer.sortingOrder = 2100;
+        else spriteRenderer.sortingOrder = 1500;
     }
 
     void FixedUpdate()
@@ -171,6 +154,8 @@ public class RubyController : MonoBehaviour
     void ProcessarTiroCombo()
     {
         contadorCliquesX++;
+        animator.SetTrigger("Launch"); 
+
         if (contadorCliquesX < 3) LaunchNormal();
         else { MorteAutomaticaInimigo(); contadorCliquesX = 0; }
     }
@@ -178,16 +163,23 @@ public class RubyController : MonoBehaviour
     void LaunchNormal()
     {
         if (projectilePrefab == null) return;
-        Vector2 spawnPos = rb.position + lookDirection * 1.5f + Vector2.up * 0.5f;
+        Vector2 spawnPos = rb.position + lookDirection * 0.5f + Vector2.up * 0.5f;
         GameObject proj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
+        
         BalaProjetil p = proj.GetComponent<BalaProjetil>();
-        if (p != null) { p.Lancar(lookDirection, launchForce); PlaySound(throwSound); }
+        if (p != null) { 
+            p.Lancar(lookDirection, launchForce); 
+            PlaySound(throwSound); 
+        }
     }
 
     void MorteAutomaticaInimigo()
     {
-        InimigoController[] inimigos = FindObjectsOfType<InimigoController>();
-        if (inimigos.Length > 0) inimigos[0].Consertar();
+        EnemySugarController[] inimigos = FindObjectsOfType<EnemySugarController>();
+        foreach(EnemySugarController enemy in inimigos)
+        {
+            enemy.Consertar();
+        }
     }
 
     public void PlaySound(AudioClip clip)

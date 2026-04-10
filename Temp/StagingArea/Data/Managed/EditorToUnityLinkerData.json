@@ -293,15 +293,6 @@
         },
         {
             "managedAssemblyName": "UnityEngine.dll",
-            "nativeClass": "CapsuleCollider2D",
-            "fullManagedTypeName": "UnityEngine.CapsuleCollider2D",
-            "moduleName": "Physics2D",
-            "usedInScenes": [
-                "Assets/Scenes/SampleScene.unity"
-            ]
-        },
-        {
-            "managedAssemblyName": "UnityEngine.dll",
             "nativeClass": "CircleCollider2D",
             "fullManagedTypeName": "UnityEngine.CircleCollider2D",
             "moduleName": "Physics2D",
@@ -404,6 +395,24 @@
             "nativeClass": "Object",
             "fullManagedTypeName": "UnityEngine.Object",
             "moduleName": "Core",
+            "usedInScenes": [
+                "Assets/Scenes/SampleScene.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "ParticleSystem",
+            "fullManagedTypeName": "UnityEngine.ParticleSystem",
+            "moduleName": "ParticleSystem",
+            "usedInScenes": [
+                "Assets/Scenes/SampleScene.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "ParticleSystemRenderer",
+            "fullManagedTypeName": "UnityEngine.ParticleSystemRenderer",
+            "moduleName": "ParticleSystem",
             "usedInScenes": [
                 "Assets/Scenes/SampleScene.unity"
             ]
